@@ -16,13 +16,22 @@ switch (command) {
     fetchSongs(query);
     break;
   case "movie-this":
-    fetchMovie();
+    if (query) {
+      fetchMovie(query);
+    } else {
+      fetchMovie("Mr. Nobody");
+    }
+
     break;
   case "do-what-it-says":
     doWhatItSays();
     break;
   default:
-    console.log("invalid command");
+    console.log("\nvalid commands:\n");
+    console.log("concert-this \t\t\t search for concerts");
+    console.log("spotify-this-song \t\t search for a song");
+    console.log("movie-this \t\t\t search for a movie");
+    console.log("do-what-it-says \t\t runs command from random.txt\n");
 }
 
 function fetchConcerts(query) {
@@ -33,10 +42,13 @@ function fetchConcerts(query) {
         "/events?app_id=codingbootcamp"
     )
     .then((resp) => {
+      if (resp.data.length === 0) {
+        console.log("\nno concerts found :(\n");
+      }
       renderConcerts(resp.data);
     })
     .catch((err) => {
-      console.log(err);
+      console.log("\n" + err.message + "\n");
     });
 }
 
@@ -51,17 +63,23 @@ function renderConcerts(concerts) {
 }
 
 function fetchSongs(query) {
-  spotify.search({ type: "track", query: query }, function (err, data) {
-    if (err) {
-      return console.log("Error occurred: " + err);
-    }
+  if (query) {
+    spotify.search({ type: "track", query: query }, function (err, data) {
+      if (err) {
+        return console.log("Error occurred: " + err);
+      }
 
-    if (data.tracks.items.length === 0) {
-      fetchSongs("The Sign");
-    } else {
-      renderSongs(data.tracks.items);
-    }
-  });
+      if (data.tracks.items.length === 0) {
+        fetchSongs("The Sign");
+      } else {
+        renderSongs(data.tracks.items);
+      }
+    });
+  } else {
+    console.log(
+      "\nYou must specify a song name:\tspotify-this-song <song name here>\n"
+    );
+  }
 }
 
 function renderSongs(songs) {
@@ -73,8 +91,26 @@ function renderSongs(songs) {
   });
 }
 
-function fetchMovie() {
-  console.log("fetch movie");
+function fetchMovie(movie) {
+  axios
+    .get("http://www.omdbapi.com/?apikey=trilogy&t=" + movie)
+    .then((resp) => {
+      if (resp.data.Response === "True") {
+        console.log("\n" + "Title: " + resp.data.Title);
+        console.log("Year: " + resp.data.Year);
+        console.log("IMDB Rating: " + resp.data.Ratings[0].Value);
+        console.log("Rotten Tomatoes: " + resp.data.Ratings[1].Value);
+        console.log("Country: " + resp.data.Country);
+        console.log("Language: " + resp.data.Language);
+        console.log("Plot: " + resp.data.Plot);
+        console.log("Actors: " + resp.data.Actors + "\n");
+      } else {
+        console.log(resp.data.Error);
+      }
+    })
+    .catch((err) => {
+      console.log("\n" + err.message + "\n");
+    });
 }
 
 function doWhatItSays() {
