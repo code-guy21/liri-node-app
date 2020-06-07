@@ -10,10 +10,10 @@ let query = process.argv.slice(3).join("+");
 
 switch (command) {
   case "concert-this":
-    fetchConcerts();
+    fetchConcerts(query);
     break;
   case "spotify-this-song":
-    fetchSong();
+    fetchSongs(query);
     break;
   case "movie-this":
     fetchMovie();
@@ -25,7 +25,7 @@ switch (command) {
     console.log("invalid command");
 }
 
-function fetchConcerts() {
+function fetchConcerts(query) {
   axios
     .get(
       "https://rest.bandsintown.com/artists/" +
@@ -50,8 +50,27 @@ function renderConcerts(concerts) {
   });
 }
 
-function fetchSong() {
-  console.log("fetch song");
+function fetchSongs(query) {
+  spotify.search({ type: "track", query: query }, function (err, data) {
+    if (err) {
+      return console.log("Error occurred: " + err);
+    }
+
+    if (data.tracks.items.length === 0) {
+      fetchSongs("The Sign");
+    } else {
+      renderSongs(data.tracks.items);
+    }
+  });
+}
+
+function renderSongs(songs) {
+  songs.forEach((song) => {
+    console.log("\n" + "Artist: " + song.artists[0].name);
+    console.log("Name: " + song.name);
+    console.log("Preview: " + song.preview_url);
+    console.log("Album: " + song.album.name);
+  });
 }
 
 function fetchMovie() {
