@@ -10,8 +10,6 @@ let command = process.argv[2];
 let query = process.argv.slice(3).join("+");
 
 function liriBot(command, query) {
-  clearLog();
-
   switch (command) {
     case "concert-this":
       fetchConcerts(query);
@@ -30,12 +28,16 @@ function liriBot(command, query) {
     case "do-what-it-says":
       doWhatItSays();
       break;
+    case "clear":
+      clearLog();
+      break;
     default:
       console.log("\nvalid commands:\n");
       console.log("concert-this \t\t\t search for concerts");
       console.log("spotify-this-song \t\t search for a song");
       console.log("movie-this \t\t\t search for a movie");
       console.log("do-what-it-says \t\t runs command from random.txt\n");
+      console.log("clear \t\t clears data in log.txt\n");
   }
 }
 
