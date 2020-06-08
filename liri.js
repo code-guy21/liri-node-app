@@ -1,3 +1,4 @@
+const fs = require("fs");
 const axios = require("axios");
 const moment = require("moment");
 const keys = require("./keys.js");
@@ -8,30 +9,32 @@ let spotify = new Spotify(keys.spotify);
 let command = process.argv[2];
 let query = process.argv.slice(3).join("+");
 
-switch (command) {
-  case "concert-this":
-    fetchConcerts(query);
-    break;
-  case "spotify-this-song":
-    fetchSongs(query);
-    break;
-  case "movie-this":
-    if (query) {
-      fetchMovie(query);
-    } else {
-      fetchMovie("Mr. Nobody");
-    }
+function liriBot(command, query) {
+  switch (command) {
+    case "concert-this":
+      fetchConcerts(query);
+      break;
+    case "spotify-this-song":
+      fetchSongs(query);
+      break;
+    case "movie-this":
+      if (query) {
+        fetchMovie(query);
+      } else {
+        fetchMovie("Mr. Nobody");
+      }
 
-    break;
-  case "do-what-it-says":
-    doWhatItSays();
-    break;
-  default:
-    console.log("\nvalid commands:\n");
-    console.log("concert-this \t\t\t search for concerts");
-    console.log("spotify-this-song \t\t search for a song");
-    console.log("movie-this \t\t\t search for a movie");
-    console.log("do-what-it-says \t\t runs command from random.txt\n");
+      break;
+    case "do-what-it-says":
+      doWhatItSays();
+      break;
+    default:
+      console.log("\nvalid commands:\n");
+      console.log("concert-this \t\t\t search for concerts");
+      console.log("spotify-this-song \t\t search for a song");
+      console.log("movie-this \t\t\t search for a movie");
+      console.log("do-what-it-says \t\t runs command from random.txt\n");
+  }
 }
 
 function fetchConcerts(query) {
@@ -44,8 +47,9 @@ function fetchConcerts(query) {
     .then((resp) => {
       if (resp.data.length === 0) {
         console.log("\nno concerts found :(\n");
+      } else {
+        renderConcerts(resp.data);
       }
-      renderConcerts(resp.data);
     })
     .catch((err) => {
       console.log("\n" + err.message + "\n");
@@ -77,7 +81,7 @@ function fetchSongs(query) {
     });
   } else {
     console.log(
-      "\nYou must specify a song name:\tspotify-this-song <song name here>\n"
+      "\nYou must specify a search term:\tspotify-this-song <song name here>\n"
     );
   }
 }
@@ -114,5 +118,10 @@ function fetchMovie(movie) {
 }
 
 function doWhatItSays() {
-  console.log("do what it says");
+  fs.readFile("random.txt", "utf8", function (err, data) {
+    let command = data.split(",");
+    liriBot(command[0], command[1]);
+  });
 }
+
+liriBot(command, query);
