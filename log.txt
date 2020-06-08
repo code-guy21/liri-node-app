@@ -1,4 +1,100 @@
-Venue: Playground Festival
-Location: Giffnock, United Kingdom
-Date: 08/01/2020
 
+Artist: Babyface Ray
+Name: Illmatic
+Preview: https://p.scdn.co/mp3-preview/d093de71ba6343e7d66f3782b5dcb95779bd18eb?cid=f20d815ec73048b38f3d21a550757d6e
+Album: MIA Season 2
+
+Artist: Technosnaus
+Name: Illmatic - Oppegårdrussen 2016
+Preview: https://p.scdn.co/mp3-preview/7df38cb942a089e9a8bf8b87aadb8996a4cf1014?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Illmatic - Oppegårdrussen 2016
+
+Artist: Prodig Illmatic
+Name: On My Heart (Intro)
+Preview: https://p.scdn.co/mp3-preview/2dc7e86d374f7d75aa3f06514f05d5e97c2fa6e9?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Tell the World Am Coming
+
+Artist: Prodig Illmatic
+Name: In the Night
+Preview: https://p.scdn.co/mp3-preview/9f9aa32130553b127e9c061f27be8203f62bacdd?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Magic
+
+Artist: Prodig Illmatic
+Name: Magic
+Preview: https://p.scdn.co/mp3-preview/96e6562bf6afed38e2adf60cd8ca754ef0fb7d57?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Magic
+
+Artist: Snaga & Pillath
+Name: Feelin Good
+Preview: https://p.scdn.co/mp3-preview/baac070b524747298d68d42e97f9e54c782bf61a?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Aus Liebe Zum Spiel
+
+Artist: Cosmic Lilac
+Name: The Hustle
+Preview: https://p.scdn.co/mp3-preview/ec25da7f0c485dec1e2a019a17d708cbc265db5d?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Aweken Dreams
+
+Artist: Illmatic
+Name: Pac Man
+Preview: https://p.scdn.co/mp3-preview/cc46b701532521a1bb16799aff016a74d30bbead?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Pac Man
+
+Artist: Prodig Illmatic
+Name: Distance
+Preview: https://p.scdn.co/mp3-preview/28dc42f3b213e7d25b090da3e96eee898474c833?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Tell the World Am Coming
+
+Artist: Nas
+Name: N.Y. State of Mind
+Preview: https://p.scdn.co/mp3-preview/1a15b1a2287238a4b124d712af2eeac1d6e5b3a2?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Illmatic XX
+
+Artist: Nas
+Name: N.Y. State of Mind
+Preview: https://p.scdn.co/mp3-preview/1a15b1a2287238a4b124d712af2eeac1d6e5b3a2?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Illmatic
+
+Artist: Nas
+Name: The World Is Yours
+Preview: https://p.scdn.co/mp3-preview/012abbf7996276d2f38b3c5102aa57bf4fe100eb?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Illmatic
+
+Artist: Nas
+Name: The World Is Yours
+Preview: https://p.scdn.co/mp3-preview/012abbf7996276d2f38b3c5102aa57bf4fe100eb?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Illmatic XX
+
+Artist: Nas
+Name: It Ain't Hard to Tell
+Preview: https://p.scdn.co/mp3-preview/ca9bf2cdf6d177d314cba190318f8947ff513e42?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Illmatic
+
+Artist: Nas
+Name: Life's a Bitch (feat. AZ & Olu Dara)
+Preview: https://p.scdn.co/mp3-preview/367d0a32d988e90671ab3789444b7c9cac221462?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Illmatic
+
+Artist: Nas
+Name: Memory Lane (Sittin' in da Park)
+Preview: https://p.scdn.co/mp3-preview/5f1577c55f28ef86ceead5d518cd3cd4de70aea8?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Illmatic
+
+Artist: Nas
+Name: Halftime
+Preview: https://p.scdn.co/mp3-preview/2b0d23c5df9012f4298ac3338fe98eceb0b3aa33?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Illmatic
+
+Artist: Dheformer
+Name: Illmatico
+Preview: https://p.scdn.co/mp3-preview/21f5aa4858d5c4a7aefdd577ba4aa86392738e2b?cid=f20d815ec73048b38f3d21a550757d6e
+Album: La Viña 2004
+
+Artist: Prodig Illmatic
+Name: Swimming
+Preview: https://p.scdn.co/mp3-preview/40845b750e51387c487a06dd73d4be7842a785d4?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Swimming
+
+Artist: Illmatic Deep
+Name: Free My Mind
+Preview: https://p.scdn.co/mp3-preview/33667bd33d2c2e5bfa34107b4de680862ae11d6b?cid=f20d815ec73048b38f3d21a550757d6e
+Album: Free My Mind

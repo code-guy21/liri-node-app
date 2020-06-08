@@ -77,7 +77,8 @@ function fetchSongs(query) {
   if (query) {
     spotify.search({ type: "track", query: query }, function (err, data) {
       if (err) {
-        return console.log("Error occurred: " + err);
+        logData("Error occurred: " + err);
+        return;
       }
 
       if (data.tracks.items.length === 0) {
@@ -95,10 +96,19 @@ function fetchSongs(query) {
 
 function renderSongs(songs) {
   songs.forEach((song) => {
-    console.log("\n" + "Artist: " + song.artists[0].name);
-    console.log("Name: " + song.name);
-    console.log("Preview: " + song.preview_url);
-    console.log("Album: " + song.album.name);
+    let data =
+      "\n" +
+      "Artist: " +
+      song.artists[0].name +
+      "\nName: " +
+      song.name +
+      "\nPreview: " +
+      (song.preview_url ? song.preview_url : "No preview available") +
+      "\nAlbum: " +
+      song.album.name +
+      "\n";
+
+    logData(data);
   });
 }
 
@@ -107,27 +117,41 @@ function fetchMovie(movie) {
     .get("http://www.omdbapi.com/?apikey=trilogy&t=" + movie)
     .then((resp) => {
       if (resp.data.Response === "True") {
-        console.log("\n" + "Title: " + resp.data.Title);
-        console.log("Year: " + resp.data.Year);
-        console.log("IMDB Rating: " + resp.data.Ratings[0].Value);
-        console.log("Rotten Tomatoes: " + resp.data.Ratings[1].Value);
-        console.log("Country: " + resp.data.Country);
-        console.log("Language: " + resp.data.Language);
-        console.log("Plot: " + resp.data.Plot);
-        console.log("Actors: " + resp.data.Actors + "\n");
+        let data =
+          "\n" +
+          "Title: " +
+          resp.data.Title +
+          "\nYear: " +
+          resp.data.Year +
+          "\nIMDB Rating: " +
+          resp.data.Ratings[0].Value +
+          "\nRotten Tomatoes: " +
+          resp.data.Ratings[1].Value +
+          "\nCountry: " +
+          resp.data.Country +
+          "\nLanguage: " +
+          resp.data.Language +
+          "\nPlot: " +
+          resp.data.Plot +
+          "\nActors: " +
+          resp.data.Actors +
+          "\n";
+
+        logData(data);
       } else {
-        console.log(resp.data.Error);
+        logData(resp.data.Error);
       }
     })
     .catch((err) => {
-      console.log("\n" + err.message + "\n");
+      logData("\n" + err.message + "\n");
     });
 }
 
 function doWhatItSays() {
   fs.readFile("random.txt", "utf8", function (err, data) {
     if (err) {
-      return console.log(err);
+      logData(err);
+      return;
     }
 
     let command = data.split(",");
@@ -138,7 +162,8 @@ function doWhatItSays() {
 function clearLog() {
   fs.writeFile("log.txt", "", function (err) {
     if (err) {
-      return console.log(err);
+      logData(err);
+      return;
     }
   });
 }
@@ -147,7 +172,8 @@ function logData(data) {
   console.log(data);
   fs.appendFile("log.txt", data, (err) => {
     if (err) {
-      return console.log(err);
+      logData(err);
+      return;
     }
   });
 }
