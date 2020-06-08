@@ -10,6 +10,8 @@ let command = process.argv[2];
 let query = process.argv.slice(3).join("+");
 
 function liriBot(command, query) {
+  clearLog();
+
   switch (command) {
     case "concert-this":
       fetchConcerts(query);
@@ -46,23 +48,28 @@ function fetchConcerts(query) {
     )
     .then((resp) => {
       if (resp.data.length === 0) {
-        console.log("\nno concerts found :(\n");
+        logData("\nno concerts found :(\n");
       } else {
         renderConcerts(resp.data);
       }
     })
     .catch((err) => {
-      console.log("\n" + err.message + "\n");
+      logData("\n" + err.message + "\n");
     });
 }
 
 function renderConcerts(concerts) {
   concerts.forEach((concert) => {
-    console.log("Venue: " + concert.venue.name);
-    console.log("Location: " + concert.venue.location);
-    console.log(
-      "Date: " + moment(concert.datetime).format("MM/DD/YYYY") + "\n"
-    );
+    let data =
+      "Venue: " +
+      concert.venue.name +
+      "\nLocation: " +
+      concert.venue.location +
+      "\nDate: " +
+      moment(concert.datetime).format("MM/DD/YYYY") +
+      "\n\n";
+
+    logData(data);
   });
 }
 
@@ -80,7 +87,7 @@ function fetchSongs(query) {
       }
     });
   } else {
-    console.log(
+    logData(
       "\nYou must specify a search term:\tspotify-this-song <song name here>\n"
     );
   }
@@ -119,8 +126,29 @@ function fetchMovie(movie) {
 
 function doWhatItSays() {
   fs.readFile("random.txt", "utf8", function (err, data) {
+    if (err) {
+      return console.log(err);
+    }
+
     let command = data.split(",");
     liriBot(command[0], command[1]);
+  });
+}
+
+function clearLog() {
+  fs.writeFile("log.txt", "", function (err) {
+    if (err) {
+      return console.log(err);
+    }
+  });
+}
+
+function logData(data) {
+  console.log(data);
+  fs.appendFile("log.txt", data, (err) => {
+    if (err) {
+      return console.log(err);
+    }
   });
 }
 
