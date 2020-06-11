@@ -60,7 +60,7 @@ Once you have LIRI Bot installed you can run commands with the following format
 
    `node liri.js spotify-this-song comfortably numb`
 
-   ![](./images/spotify-this.gif)
+   ![](./images/spotify.gif)
 
 2. **concert-this**
 
@@ -72,6 +72,8 @@ Once you have LIRI Bot installed you can run commands with the following format
 
    `node liri.js concert-this elton john`
 
+   ![](./images/concert.gif)
+
 3. **movie-this**
 
    - Accepts a search term for an movie title
@@ -81,6 +83,8 @@ Once you have LIRI Bot installed you can run commands with the following format
    example:
 
    `node liri.js movie-this pulp fiction`
+
+   ![](./images/movie.gif)
 
 4. **do-what-it-says**
 
@@ -95,3 +99,5 @@ Once you have LIRI Bot installed you can run commands with the following format
 
    _command line_
    `node liri.js do-what-it-says`
+
+   ![](./images/dowhat.gif)
