@@ -60,6 +60,8 @@ Once you have LIRI Bot installed you can run commands with the following format
 
    `node liri.js spotify-this-song comfortably numb`
 
+   ![](./images/spotify-this.gif)
+
 2. **concert-this**
 
    - Accepts a search term for an artist/band
